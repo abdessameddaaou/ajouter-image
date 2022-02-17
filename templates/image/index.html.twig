@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Photo index{% endblock %}
+
+{% block body %}
+
+<h1> l'image en cours </h1>
+
+    {% for photo in photos %}
+
+        {% if loop.last == true %}
+            <img style="margin-top: 0px;"src="{{ vich_uploader_asset(photo, 'imageFile')}}" width="500" height="450">
+        {% endif %}
+
+    {% endfor %}
+
+        <button style="border-radius: 10px; background-color: green; height:40px; position:absolute; margin-top: 150px; margin-left: 200px;"><a  style="text-decoration:none; color:white" href="{{ path('image_new') }}">Create new</a></button>
+
+    <h1>Photo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>nom de l'image</th>
+                <th>l'image</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photo in photos %}
+            <tr>
+                <td>{{ photo.id }}</td>
+                <td>{{ photo.image }}</td>
+                <td>
+                 <img src="{{ vich_uploader_asset(photo, 'imageFile')}}" width="150" height="100">
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">pas d'image ajouté :) !</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

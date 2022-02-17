@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Photo{% endblock %}
+
+{% block body %}
+    <h1>Create new Photo</h1>
+     <button style="border-radius: 10px; background-color: green; height:40px; position:absolute; margin-top: 70px; margin-left: 260px;"><a style="text-decoration:none; color:white" href="{{ path('image_new') }}" href="{{ path('image_index') }}">retour</a></button>
+  {{ include('image/_form.html.twig') }}
+{% endblock %}
